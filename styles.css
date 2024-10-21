@@ -1,0 +1,136 @@
+/* General Styles (for larger screens and desktops) */
+body {
+    background: #fbdcdc;
+    height: 100%;
+    margin: 0;
+}
+
+.birthday-card {
+    position: relative;
+    width: 300px;
+    height: 395px;
+    border: 10px solid #ef5050;
+    margin: 60px auto;
+    box-shadow: inset 10px 0px 15px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.5)), 
+                      url("CAKE.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.birthday-card .text {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    font-family: 'Nobile', sans-serif;
+}
+
+.birthday-card .text > p {
+    font-size: 1.1em;
+    color: #331717;
+    line-height: 1.4;
+    font-style: italic;
+    text-align: center;
+    margin: 30px auto;
+}
+
+.birthday-card .text .title {
+    font-size: 1.5em;
+    margin: 60px auto;
+}
+
+.birthday-card .cover-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: -10px 0 0 -10px;
+    border: 10px solid #ef5050;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+}
+
+.birthday-card .cover-outer img {
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+}
+
+.birthday-card .cover-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #ef5050;
+    background-color: #ef5050;
+    margin: -10px 0 0 -10px;
+    backface-visibility: visible;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+    overflow: hidden;
+}
+
+.birthday-card .cover-inner img {
+    transform: rotateY(170deg);
+}
+
+.birthday-card:hover .cover-outer {
+    transform: perspective(800px) rotateY(-170deg);
+}
+
+.birthday-card:hover .cover-inner {
+    transform: perspective(800px) rotateY(-170deg);
+    box-shadow: 7px 0 5px rgba(0, 0, 0, 0.3), inset 2px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Query for mobile devices with a max width of 600px */
+@media (max-width: 600px) {
+    .birthday-card {
+        width: 100%;
+        height: auto;
+        margin: 20px auto;
+        border-width: 5px;  /* Reduce border size for mobile */
+    }
+
+    .birthday-card .text > p {
+        font-size: 1em; /* Reduce font size for mobile */
+    }
+
+    .birthday-card .text .title {
+        font-size: 1.2em; /* Adjust title font size for mobile */
+    }
+
+    .birthday-card .cover-outer {
+        border-width: 5px;  /* Reduce outer border size for mobile */
+    }
+
+    .birthday-card .cover-inner {
+        border-width: 5px;  /* Reduce inner border size for mobile */
+    }
+}
+
+/* Media Query specifically for Realme C21 (1600x720) */
+@media (max-width: 720px) {
+    .birthday-card {
+        width: 95%;
+        height: auto;
+        margin: 20px auto;
+        border-width: 7px;  /* Adjusted for Realme C21 screen */
+    }
+
+    .birthday-card .text > p {
+        font-size: 1.1em; /* Adjust font size for readability */
+    }
+
+    .birthday-card .text .title {
+        font-size: 1.4em;  /* Title size for Realme C21 */
+    }
+
+    .birthday-card .cover-outer, .birthday-card .cover-inner {
+        border-width: 7px; /* Adjust border size for Realme C21 */
+    }
+}
